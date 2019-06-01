@@ -28,19 +28,6 @@ function reset() {
     guessedLetters = [];
 }
 
-function returnArray() {
-    userGuessText.textContent = guessedLetters.join(", ");
-
-    // for (i = 0; i < guessedLetters.length; i++) {
-    //     var result = "" ;
-
-    //     var newLetter = guessedLetters[i];
-    //     if (i !== guessedLetters.length -1) {
-    //         str.concat(newLetter, ", ");
-    //     }
-    // }
-}
-
 document.onkeyup = function (event) {
     var userGuess = event.key;
 
@@ -51,9 +38,9 @@ document.onkeyup = function (event) {
     } else {
         guessesLeft--;
         guessedLetters.push(userGuess);
-    
+        userGuessText.textContent =guessedLetters.join(", ");
+        
         console.log("User Guess: " + guessedLetters)
-        userGuessText.textContent = returnArray();
     }
 
     if (guessesLeft == 0) {
@@ -65,6 +52,5 @@ document.onkeyup = function (event) {
     winsText.textContent = wins;
     lossesText.textContent = losses;
     guessesLeftText.textContent = guessesLeft;
-    userGuessText.textContent = returnArray();
     
 }
