@@ -15,7 +15,7 @@ var guessesLeftText = document.getElementById("guessesLeft");
 var userGuessText = document.getElementById("userGuess");
 
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-console.log(computerGuess)
+console.log("Computer Guess: " + computerGuess)
 
 alert("Click ok to start!");
 
@@ -23,21 +23,22 @@ alert("Click ok to start!");
 function reset() {
     // updating the HTML to reflect the new variable values
     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    console.log(computerGuess)
+    console.log("Computer Guess: " + computerGuess)
     guessesLeft = 9;
     guessedLetters = [];
 }
 
 function returnArray() {
-    for (i = 0; i < guessedLetters.length; i++) {
-        var result = "" ;
+    userGuessText.textContent = guessedLetters.join(", ");
 
-        var newLetter = guessedLetters[i];
-        if (i !== guessedLetters.length -1) {
-            str.concat(newLetter, ", ");
-        }
+    // for (i = 0; i < guessedLetters.length; i++) {
+    //     var result = "" ;
 
-    }
+    //     var newLetter = guessedLetters[i];
+    //     if (i !== guessedLetters.length -1) {
+    //         str.concat(newLetter, ", ");
+    //     }
+    // }
 }
 
 document.onkeyup = function (event) {
@@ -51,7 +52,7 @@ document.onkeyup = function (event) {
         guessesLeft--;
         guessedLetters.push(userGuess);
     
-        console.log(guessedLetters)
+        console.log("User Guess: " + guessedLetters)
         userGuessText.textContent = returnArray();
     }
 
